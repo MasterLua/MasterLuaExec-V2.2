@@ -1,0 +1,695 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="kiero">
+      <UniqueIdentifier>{c914abae-6128-4a2a-8821-07a38f656930}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="imgui">
+      <UniqueIdentifier>{3ba57e14-8ac2-485a-b12c-f06690c43d6e}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="kiero\minhook\src\buffer.c">
+      <Filter>kiero</Filter>
+    </ClCompile>
+    <ClCompile Include="kiero\minhook\src\hde\hde32.c">
+      <Filter>kiero</Filter>
+    </ClCompile>
+    <ClCompile Include="kiero\minhook\src\hde\hde64.c">
+      <Filter>kiero</Filter>
+    </ClCompile>
+    <ClCompile Include="kiero\minhook\src\hook.c">
+      <Filter>kiero</Filter>
+    </ClCompile>
+    <ClCompile Include="kiero\kiero.cpp">
+      <Filter>kiero</Filter>
+    </ClCompile>
+    <ClCompile Include="kiero\minhook\src\trampoline.c">
+      <Filter>kiero</Filter>
+    </ClCompile>
+    <ClCompile Include="main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="imgui\imgui.cpp">
+      <Filter>imgui</Filter>
+    </ClCompile>
+    <ClCompile Include="imgui\imgui_demo.cpp">
+      <Filter>imgui</Filter>
+    </ClCompile>
+    <ClCompile Include="imgui\imgui_draw.cpp">
+      <Filter>imgui</Filter>
+    </ClCompile>
+    <ClCompile Include="imgui\imgui_impl_dx11.cpp">
+      <Filter>imgui</Filter>
+    </ClCompile>
+    <ClCompile Include="imgui\imgui_impl_win32.cpp">
+      <Filter>imgui</Filter>
+    </ClCompile>
+    <ClCompile Include="imgui\imgui_widgets.cpp">
+      <Filter>imgui</Filter>
+    </ClCompile>
+    <ClCompile Include="imgui\ImGuiFileDialog.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="imgui\TextEditor.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="kiero\minhook\src\buffer.h">
+      <Filter>kiero</Filter>
+    </ClInclude>
+    <ClInclude Include="kiero\minhook\src\hde\hde32.h">
+      <Filter>kiero</Filter>
+    </ClInclude>
+    <ClInclude Include="kiero\minhook\src\hde\hde64.h">
+      <Filter>kiero</Filter>
+    </ClInclude>
+    <ClInclude Include="kiero\kiero.h">
+      <Filter>kiero</Filter>
+    </ClInclude>
+    <ClInclude Include="kiero\minhook\include\MinHook.h">
+      <Filter>kiero</Filter>
+    </ClInclude>
+    <ClInclude Include="kiero\minhook\src\hde\pstdint.h">
+      <Filter>kiero</Filter>
+    </ClInclude>
+    <ClInclude Include="kiero\minhook\src\hde\table32.h">
+      <Filter>kiero</Filter>
+    </ClInclude>
+    <ClInclude Include="kiero\minhook\src\hde\table64.h">
+      <Filter>kiero</Filter>
+    </ClInclude>
+    <ClInclude Include="kiero\minhook\src\trampoline.h">
+      <Filter>kiero</Filter>
+    </ClInclude>
+    <ClInclude Include="imgui\imconfig.h">
+      <Filter>imgui</Filter>
+    </ClInclude>
+    <ClInclude Include="imgui\imgui.h">
+      <Filter>imgui</Filter>
+    </ClInclude>
+    <ClInclude Include="imgui\imgui_impl_dx11.h">
+      <Filter>imgui</Filter>
+    </ClInclude>
+    <ClInclude Include="imgui\imgui_impl_win32.h">
+      <Filter>imgui</Filter>
+    </ClInclude>
+    <ClInclude Include="imgui\imgui_internal.h">
+      <Filter>imgui</Filter>
+    </ClInclude>
+    <ClInclude Include="imgui\imstb_rectpack.h">
+      <Filter>imgui</Filter>
+    </ClInclude>
+    <ClInclude Include="imgui\imstb_textedit.h">
+      <Filter>imgui</Filter>
+    </ClInclude>
+    <ClInclude Include="imgui\imstb_truetype.h">
+      <Filter>imgui</Filter>
+    </ClInclude>
+    <ClInclude Include="includes.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="main.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="FiveM\ComponentHolder.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="FiveM\EventCore.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="FiveM\ICoreGameInit.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="FiveM\IteratorView.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="FiveM\msgpack.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="FiveM\msgpack.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="FiveM\omptr.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="FiveM\ProfileManager.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="FiveM\ProfileManagerImpl.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="FiveM\RelativeDevice.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="FiveM\Resource.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="FiveM\ResourceCache.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="FiveM\ResourceEventComponent.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="FiveM\ResourceImpl.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="FiveM\ResourceManager.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="FiveM\ResourceManagerImpl.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="FiveM\ResourceMetaDataComponent.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="FiveM\ResourceMounter.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="FiveM\ResourceScriptingComponent.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="FiveM\ScriptEngine.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="FiveM\StdInc.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="FiveM\Utils.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="FiveM\VFSDevice.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="FiveM\VFSManager.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="FiveM\VFSStream.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="FiveM\VFSZipFile.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="imgui\dirent.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="imgui\ImGuiFileDialog.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="imgui\TextEditor.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="functions.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="boost\boost_1_74_0\boost\align.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="boost\boost_1_74_0\boost\aligned_storage.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="boost\boost_1_74_0\boost\any.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="boost\boost_1_74_0\boost\array.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="boost\boost_1_74_0\boost\asio.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="boost\boost_1_74_0\boost\assert.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="boost\boost_1_74_0\boost\assign.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="boost\boost_1_74_0\boost\atomic.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="boost\boost_1_74_0\boost\beast.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="boost\boost_1_74_0\boost\bimap.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="boost\boost_1_74_0\boost\bind.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="boost\boost_1_74_0\boost\blank.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="boost\boost_1_74_0\boost\blank_fwd.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="boost\boost_1_74_0\boost\call_traits.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="boost\boost_1_74_0\boost\callable_traits.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="boost\boost_1_74_0\boost\cast.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="boost\boost_1_74_0\boost\cerrno.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="boost\boost_1_74_0\boost\checked_delete.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="boost\boost_1_74_0\boost\chrono.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="boost\boost_1_74_0\boost\circular_buffer.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="boost\boost_1_74_0\boost\circular_buffer_fwd.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="boost\boost_1_74_0\boost\compressed_pair.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="boost\boost_1_74_0\boost\compute.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="boost\boost_1_74_0\boost\concept_archetype.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="boost\boost_1_74_0\boost\concept_check.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="boost\boost_1_74_0\boost\config.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="boost\boost_1_74_0\boost\contract.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="boost\boost_1_74_0\boost\contract_macro.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="boost\boost_1_74_0\boost\convert.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="boost\boost_1_74_0\boost\crc.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="boost\boost_1_74_0\boost\cregex.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="boost\boost_1_74_0\boost\cstdfloat.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="boost\boost_1_74_0\boost\cstdint.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="boost\boost_1_74_0\boost\cstdlib.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="boost\boost_1_74_0\boost\current_function.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="boost\boost_1_74_0\boost\cxx11_char_types.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="boost\boost_1_74_0\boost\date_time.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="boost\boost_1_74_0\boost\dll.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="boost\boost_1_74_0\boost\dynamic_bitset.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="boost\boost_1_74_0\boost\dynamic_bitset_fwd.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="boost\boost_1_74_0\boost\enable_shared_from_this.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="boost\boost_1_74_0\boost\endian.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="boost\boost_1_74_0\boost\exception_ptr.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="boost\boost_1_74_0\boost\filesystem.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="boost\boost_1_74_0\boost\flyweight.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="boost\boost_1_74_0\boost\foreach.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="boost\boost_1_74_0\boost\foreach_fwd.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="boost\boost_1_74_0\boost\format.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="boost\boost_1_74_0\boost\function.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="boost\boost_1_74_0\boost\function_equal.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="boost\boost_1_74_0\boost\function_output_iterator.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="boost\boost_1_74_0\boost\functional.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="boost\boost_1_74_0\boost\generator_iterator.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="boost\boost_1_74_0\boost\geometry.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="boost\boost_1_74_0\boost\get_pointer.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="boost\boost_1_74_0\boost\gil.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="boost\boost_1_74_0\boost\hana.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="boost\boost_1_74_0\boost\histogram.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="boost\boost_1_74_0\boost\hof.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="boost\boost_1_74_0\boost\implicit_cast.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="boost\boost_1_74_0\boost\indirect_reference.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="boost\boost_1_74_0\boost\integer.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="boost\boost_1_74_0\boost\integer_fwd.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="boost\boost_1_74_0\boost\integer_traits.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="boost\boost_1_74_0\boost\intrusive_ptr.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="boost\boost_1_74_0\boost\io_fwd.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="boost\boost_1_74_0\boost\is_placeholder.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="boost\boost_1_74_0\boost\iterator.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="boost\boost_1_74_0\boost\iterator_adaptors.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="boost\boost_1_74_0\boost\lexical_cast.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="boost\boost_1_74_0\boost\limits.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="boost\boost_1_74_0\boost\local_function.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="boost\boost_1_74_0\boost\locale.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="boost\boost_1_74_0\boost\make_default.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="boost\boost_1_74_0\boost\make_shared.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="boost\boost_1_74_0\boost\make_unique.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="boost\boost_1_74_0\boost\math_fwd.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="boost\boost_1_74_0\boost\mem_fn.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="boost\boost_1_74_0\boost\memory_order.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="boost\boost_1_74_0\boost\metaparse.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="boost\boost_1_74_0\boost\mp11.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="boost\boost_1_74_0\boost\mpi.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="boost\boost_1_74_0\boost\multi_array.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="boost\boost_1_74_0\boost\multi_index_container.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="boost\boost_1_74_0\boost\multi_index_container_fwd.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="boost\boost_1_74_0\boost\next_prior.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="boost\boost_1_74_0\boost\non_type.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="boost\boost_1_74_0\boost\noncopyable.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="boost\boost_1_74_0\boost\nondet_random.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="boost\boost_1_74_0\boost\none.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="boost\boost_1_74_0\boost\none_t.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="boost\boost_1_74_0\boost\operators.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="boost\boost_1_74_0\boost\operators_v1.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="boost\boost_1_74_0\boost\optional.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="boost\boost_1_74_0\boost\outcome.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="boost\boost_1_74_0\boost\parameter.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="boost\boost_1_74_0\boost\phoenix.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="boost\boost_1_74_0\boost\pointee.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="boost\boost_1_74_0\boost\pointer_cast.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="boost\boost_1_74_0\boost\pointer_to_other.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="boost\boost_1_74_0\boost\polymorphic_cast.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="boost\boost_1_74_0\boost\polymorphic_pointer_cast.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="boost\boost_1_74_0\boost\predef.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="boost\boost_1_74_0\boost\preprocessor.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="boost\boost_1_74_0\boost\process.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="boost\boost_1_74_0\boost\program_options.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="boost\boost_1_74_0\boost\progress.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="boost\boost_1_74_0\boost\python.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="boost\boost_1_74_0\boost\random.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="boost\boost_1_74_0\boost\range.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="boost\boost_1_74_0\boost\ratio.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="boost\boost_1_74_0\boost\rational.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="boost\boost_1_74_0\boost\ref.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="boost\boost_1_74_0\boost\regex.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="boost\boost_1_74_0\boost\regex.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="boost\boost_1_74_0\boost\regex_fwd.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="boost\boost_1_74_0\boost\scope_exit.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="boost\boost_1_74_0\boost\scoped_array.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="boost\boost_1_74_0\boost\scoped_ptr.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="boost\boost_1_74_0\boost\shared_array.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="boost\boost_1_74_0\boost\shared_container_iterator.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="boost\boost_1_74_0\boost\shared_ptr.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="boost\boost_1_74_0\boost\signals2.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="boost\boost_1_74_0\boost\smart_ptr.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="boost\boost_1_74_0\boost\spirit.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="boost\boost_1_74_0\boost\stacktrace.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="boost\boost_1_74_0\boost\static_assert.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="boost\boost_1_74_0\boost\static_string.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="boost\boost_1_74_0\boost\swap.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="boost\boost_1_74_0\boost\thread.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="boost\boost_1_74_0\boost\throw_exception.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="boost\boost_1_74_0\boost\timer.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="boost\boost_1_74_0\boost\token_functions.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="boost\boost_1_74_0\boost\token_iterator.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="boost\boost_1_74_0\boost\tokenizer.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="boost\boost_1_74_0\boost\type.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="boost\boost_1_74_0\boost\type_index.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="boost\boost_1_74_0\boost\type_traits.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="boost\boost_1_74_0\boost\unordered_map.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="boost\boost_1_74_0\boost\unordered_set.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="boost\boost_1_74_0\boost\utility.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="boost\boost_1_74_0\boost\variant.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="boost\boost_1_74_0\boost\version.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="boost\boost_1_74_0\boost\visit_each.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="boost\boost_1_74_0\boost\wave.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="boost\boost_1_74_0\boost\weak_ptr.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="json.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="core.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="memory.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Auth.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="RelativeDevice.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="utils.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="gui_core.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Registry.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="CustomAPI.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="kiero\minhook\dll_resources\MinHook.def">
+      <Filter>kiero</Filter>
+    </None>
+    <None Include="kiero\minhook\dll_resources\MinHook.aps" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="kiero\minhook\dll_resources\MinHook.rc">
+      <Filter>Resource Files</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+</Project>

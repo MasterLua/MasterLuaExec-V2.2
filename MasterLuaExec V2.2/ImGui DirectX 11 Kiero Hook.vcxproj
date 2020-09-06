@@ -1,0 +1,383 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <VCProjectVersion>16.0</VCProjectVersion>
+    <ProjectGuid>{04B17470-CB82-4724-904B-25445926AB86}</ProjectGuid>
+    <RootNamespace>ImGuiDirectX11KieroHook</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+    <ProjectName>MaterLuaExec V2.2</ProjectName>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="Shared">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <LibraryPath>C:\Program Files %28x86%29\Microsoft DirectX SDK %28June 2010%29\Lib\x86;$(LibraryPath)</LibraryPath>
+    <IncludePath>C:\Program Files %28x86%29\Microsoft DirectX SDK %28June 2010%29\Include;$(IncludePath)</IncludePath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <LibraryPath>C:\Program Files %28x86%29\Microsoft DirectX SDK %28June 2010%29\Lib\x86;$(LibraryPath)</LibraryPath>
+    <IncludePath>C:\Program Files %28x86%29\Microsoft DirectX SDK %28June 2010%29\Include;$(IncludePath)</IncludePath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <LibraryPath>C:\Program Files %28x86%29\Microsoft DirectX SDK %28June 2010%29\Lib\x64;$(LibraryPath)</LibraryPath>
+    <IncludePath>C:\Program Files %28x86%29\Microsoft DirectX SDK %28June 2010%29\Include;$(IncludePath)</IncludePath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <LibraryPath>C:\Program Files %28x86%29\Microsoft DirectX SDK %28June 2010%29\Lib\x64;$(LibraryPath)</LibraryPath>
+    <IncludePath>C:\Program Files %28x86%29\Microsoft DirectX SDK %28June 2010%29\Include;$(IncludePath)</IncludePath>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <SDLCheck>true</SDLCheck>
+      <ConformanceMode>true</ConformanceMode>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <AdditionalDependencies>d3d11.lib;dxgi.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <SDLCheck>true</SDLCheck>
+      <ConformanceMode>true</ConformanceMode>
+      <AdditionalUsingDirectories>%(AdditionalUsingDirectories)</AdditionalUsingDirectories>
+      <AdditionalIncludeDirectories>C:\Users\F_Kow\Desktop\pikachuexecutor\ImGui DirectX 11 Kiero Hook\FiveM;C:\Users\F_Kow\Desktop\pikachuexecutor\ImGui DirectX 11 Kiero Hook\boost;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <AdditionalDependencies>d3d11.lib;dxgi.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>C:\local\boost_1_64_0\lib64-msvc-14.1;C:\Users\F_Kow\Desktop\pikachuexecutor\ImGui DirectX 11 Kiero Hook\FiveM;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <ConformanceMode>true</ConformanceMode>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <AdditionalDependencies>d3d11.lib;dxgi.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <ConformanceMode>true</ConformanceMode>
+      <PreprocessorDefinitions>_SILENCE_EXPERIMENTAL_FILESYSTEM_DEPRECATION_WARNING;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <AdditionalDependencies>d3d11.lib;dxgi.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="imgui\imgui.cpp" />
+    <ClCompile Include="imgui\ImGuiFileDialog.cpp" />
+    <ClCompile Include="imgui\imgui_demo.cpp" />
+    <ClCompile Include="imgui\imgui_draw.cpp" />
+    <ClCompile Include="imgui\imgui_impl_dx11.cpp" />
+    <ClCompile Include="imgui\imgui_impl_win32.cpp" />
+    <ClCompile Include="imgui\imgui_widgets.cpp" />
+    <ClCompile Include="imgui\TextEditor.cpp" />
+    <ClCompile Include="kiero\kiero.cpp" />
+    <ClCompile Include="kiero\minhook\src\buffer.c" />
+    <ClCompile Include="kiero\minhook\src\hde\hde32.c" />
+    <ClCompile Include="kiero\minhook\src\hde\hde64.c" />
+    <ClCompile Include="kiero\minhook\src\hook.c" />
+    <ClCompile Include="kiero\minhook\src\trampoline.c" />
+    <ClCompile Include="main.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="kiero\minhook\dll_resources\MinHook.aps" />
+    <None Include="kiero\minhook\dll_resources\MinHook.def" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\Registry.h" />
+    <ClInclude Include="Auth.h" />
+    <ClInclude Include="boost\boost_1_74_0\boost\align.hpp" />
+    <ClInclude Include="boost\boost_1_74_0\boost\aligned_storage.hpp" />
+    <ClInclude Include="boost\boost_1_74_0\boost\any.hpp" />
+    <ClInclude Include="boost\boost_1_74_0\boost\array.hpp" />
+    <ClInclude Include="boost\boost_1_74_0\boost\asio.hpp" />
+    <ClInclude Include="boost\boost_1_74_0\boost\assert.hpp" />
+    <ClInclude Include="boost\boost_1_74_0\boost\assign.hpp" />
+    <ClInclude Include="boost\boost_1_74_0\boost\atomic.hpp" />
+    <ClInclude Include="boost\boost_1_74_0\boost\beast.hpp" />
+    <ClInclude Include="boost\boost_1_74_0\boost\bimap.hpp" />
+    <ClInclude Include="boost\boost_1_74_0\boost\bind.hpp" />
+    <ClInclude Include="boost\boost_1_74_0\boost\blank.hpp" />
+    <ClInclude Include="boost\boost_1_74_0\boost\blank_fwd.hpp" />
+    <ClInclude Include="boost\boost_1_74_0\boost\callable_traits.hpp" />
+    <ClInclude Include="boost\boost_1_74_0\boost\call_traits.hpp" />
+    <ClInclude Include="boost\boost_1_74_0\boost\cast.hpp" />
+    <ClInclude Include="boost\boost_1_74_0\boost\cerrno.hpp" />
+    <ClInclude Include="boost\boost_1_74_0\boost\checked_delete.hpp" />
+    <ClInclude Include="boost\boost_1_74_0\boost\chrono.hpp" />
+    <ClInclude Include="boost\boost_1_74_0\boost\circular_buffer.hpp" />
+    <ClInclude Include="boost\boost_1_74_0\boost\circular_buffer_fwd.hpp" />
+    <ClInclude Include="boost\boost_1_74_0\boost\compressed_pair.hpp" />
+    <ClInclude Include="boost\boost_1_74_0\boost\compute.hpp" />
+    <ClInclude Include="boost\boost_1_74_0\boost\concept_archetype.hpp" />
+    <ClInclude Include="boost\boost_1_74_0\boost\concept_check.hpp" />
+    <ClInclude Include="boost\boost_1_74_0\boost\config.hpp" />
+    <ClInclude Include="boost\boost_1_74_0\boost\contract.hpp" />
+    <ClInclude Include="boost\boost_1_74_0\boost\contract_macro.hpp" />
+    <ClInclude Include="boost\boost_1_74_0\boost\convert.hpp" />
+    <ClInclude Include="boost\boost_1_74_0\boost\crc.hpp" />
+    <ClInclude Include="boost\boost_1_74_0\boost\cregex.hpp" />
+    <ClInclude Include="boost\boost_1_74_0\boost\cstdfloat.hpp" />
+    <ClInclude Include="boost\boost_1_74_0\boost\cstdint.hpp" />
+    <ClInclude Include="boost\boost_1_74_0\boost\cstdlib.hpp" />
+    <ClInclude Include="boost\boost_1_74_0\boost\current_function.hpp" />
+    <ClInclude Include="boost\boost_1_74_0\boost\cxx11_char_types.hpp" />
+    <ClInclude Include="boost\boost_1_74_0\boost\date_time.hpp" />
+    <ClInclude Include="boost\boost_1_74_0\boost\dll.hpp" />
+    <ClInclude Include="boost\boost_1_74_0\boost\dynamic_bitset.hpp" />
+    <ClInclude Include="boost\boost_1_74_0\boost\dynamic_bitset_fwd.hpp" />
+    <ClInclude Include="boost\boost_1_74_0\boost\enable_shared_from_this.hpp" />
+    <ClInclude Include="boost\boost_1_74_0\boost\endian.hpp" />
+    <ClInclude Include="boost\boost_1_74_0\boost\exception_ptr.hpp" />
+    <ClInclude Include="boost\boost_1_74_0\boost\filesystem.hpp" />
+    <ClInclude Include="boost\boost_1_74_0\boost\flyweight.hpp" />
+    <ClInclude Include="boost\boost_1_74_0\boost\foreach.hpp" />
+    <ClInclude Include="boost\boost_1_74_0\boost\foreach_fwd.hpp" />
+    <ClInclude Include="boost\boost_1_74_0\boost\format.hpp" />
+    <ClInclude Include="boost\boost_1_74_0\boost\function.hpp" />
+    <ClInclude Include="boost\boost_1_74_0\boost\functional.hpp" />
+    <ClInclude Include="boost\boost_1_74_0\boost\function_equal.hpp" />
+    <ClInclude Include="boost\boost_1_74_0\boost\function_output_iterator.hpp" />
+    <ClInclude Include="boost\boost_1_74_0\boost\generator_iterator.hpp" />
+    <ClInclude Include="boost\boost_1_74_0\boost\geometry.hpp" />
+    <ClInclude Include="boost\boost_1_74_0\boost\get_pointer.hpp" />
+    <ClInclude Include="boost\boost_1_74_0\boost\gil.hpp" />
+    <ClInclude Include="boost\boost_1_74_0\boost\hana.hpp" />
+    <ClInclude Include="boost\boost_1_74_0\boost\histogram.hpp" />
+    <ClInclude Include="boost\boost_1_74_0\boost\hof.hpp" />
+    <ClInclude Include="boost\boost_1_74_0\boost\implicit_cast.hpp" />
+    <ClInclude Include="boost\boost_1_74_0\boost\indirect_reference.hpp" />
+    <ClInclude Include="boost\boost_1_74_0\boost\integer.hpp" />
+    <ClInclude Include="boost\boost_1_74_0\boost\integer_fwd.hpp" />
+    <ClInclude Include="boost\boost_1_74_0\boost\integer_traits.hpp" />
+    <ClInclude Include="boost\boost_1_74_0\boost\intrusive_ptr.hpp" />
+    <ClInclude Include="boost\boost_1_74_0\boost\io_fwd.hpp" />
+    <ClInclude Include="boost\boost_1_74_0\boost\is_placeholder.hpp" />
+    <ClInclude Include="boost\boost_1_74_0\boost\iterator.hpp" />
+    <ClInclude Include="boost\boost_1_74_0\boost\iterator_adaptors.hpp" />
+    <ClInclude Include="boost\boost_1_74_0\boost\lexical_cast.hpp" />
+    <ClInclude Include="boost\boost_1_74_0\boost\limits.hpp" />
+    <ClInclude Include="boost\boost_1_74_0\boost\locale.hpp" />
+    <ClInclude Include="boost\boost_1_74_0\boost\local_function.hpp" />
+    <ClInclude Include="boost\boost_1_74_0\boost\make_default.hpp" />
+    <ClInclude Include="boost\boost_1_74_0\boost\make_shared.hpp" />
+    <ClInclude Include="boost\boost_1_74_0\boost\make_unique.hpp" />
+    <ClInclude Include="boost\boost_1_74_0\boost\math_fwd.hpp" />
+    <ClInclude Include="boost\boost_1_74_0\boost\memory_order.hpp" />
+    <ClInclude Include="boost\boost_1_74_0\boost\mem_fn.hpp" />
+    <ClInclude Include="boost\boost_1_74_0\boost\metaparse.hpp" />
+    <ClInclude Include="boost\boost_1_74_0\boost\mp11.hpp" />
+    <ClInclude Include="boost\boost_1_74_0\boost\mpi.hpp" />
+    <ClInclude Include="boost\boost_1_74_0\boost\multi_array.hpp" />
+    <ClInclude Include="boost\boost_1_74_0\boost\multi_index_container.hpp" />
+    <ClInclude Include="boost\boost_1_74_0\boost\multi_index_container_fwd.hpp" />
+    <ClInclude Include="boost\boost_1_74_0\boost\next_prior.hpp" />
+    <ClInclude Include="boost\boost_1_74_0\boost\noncopyable.hpp" />
+    <ClInclude Include="boost\boost_1_74_0\boost\nondet_random.hpp" />
+    <ClInclude Include="boost\boost_1_74_0\boost\none.hpp" />
+    <ClInclude Include="boost\boost_1_74_0\boost\none_t.hpp" />
+    <ClInclude Include="boost\boost_1_74_0\boost\non_type.hpp" />
+    <ClInclude Include="boost\boost_1_74_0\boost\operators.hpp" />
+    <ClInclude Include="boost\boost_1_74_0\boost\operators_v1.hpp" />
+    <ClInclude Include="boost\boost_1_74_0\boost\optional.hpp" />
+    <ClInclude Include="boost\boost_1_74_0\boost\outcome.hpp" />
+    <ClInclude Include="boost\boost_1_74_0\boost\parameter.hpp" />
+    <ClInclude Include="boost\boost_1_74_0\boost\phoenix.hpp" />
+    <ClInclude Include="boost\boost_1_74_0\boost\pointee.hpp" />
+    <ClInclude Include="boost\boost_1_74_0\boost\pointer_cast.hpp" />
+    <ClInclude Include="boost\boost_1_74_0\boost\pointer_to_other.hpp" />
+    <ClInclude Include="boost\boost_1_74_0\boost\polymorphic_cast.hpp" />
+    <ClInclude Include="boost\boost_1_74_0\boost\polymorphic_pointer_cast.hpp" />
+    <ClInclude Include="boost\boost_1_74_0\boost\predef.h" />
+    <ClInclude Include="boost\boost_1_74_0\boost\preprocessor.hpp" />
+    <ClInclude Include="boost\boost_1_74_0\boost\process.hpp" />
+    <ClInclude Include="boost\boost_1_74_0\boost\program_options.hpp" />
+    <ClInclude Include="boost\boost_1_74_0\boost\progress.hpp" />
+    <ClInclude Include="boost\boost_1_74_0\boost\python.hpp" />
+    <ClInclude Include="boost\boost_1_74_0\boost\random.hpp" />
+    <ClInclude Include="boost\boost_1_74_0\boost\range.hpp" />
+    <ClInclude Include="boost\boost_1_74_0\boost\ratio.hpp" />
+    <ClInclude Include="boost\boost_1_74_0\boost\rational.hpp" />
+    <ClInclude Include="boost\boost_1_74_0\boost\ref.hpp" />
+    <ClInclude Include="boost\boost_1_74_0\boost\regex.h" />
+    <ClInclude Include="boost\boost_1_74_0\boost\regex.hpp" />
+    <ClInclude Include="boost\boost_1_74_0\boost\regex_fwd.hpp" />
+    <ClInclude Include="boost\boost_1_74_0\boost\scoped_array.hpp" />
+    <ClInclude Include="boost\boost_1_74_0\boost\scoped_ptr.hpp" />
+    <ClInclude Include="boost\boost_1_74_0\boost\scope_exit.hpp" />
+    <ClInclude Include="boost\boost_1_74_0\boost\shared_array.hpp" />
+    <ClInclude Include="boost\boost_1_74_0\boost\shared_container_iterator.hpp" />
+    <ClInclude Include="boost\boost_1_74_0\boost\shared_ptr.hpp" />
+    <ClInclude Include="boost\boost_1_74_0\boost\signals2.hpp" />
+    <ClInclude Include="boost\boost_1_74_0\boost\smart_ptr.hpp" />
+    <ClInclude Include="boost\boost_1_74_0\boost\spirit.hpp" />
+    <ClInclude Include="boost\boost_1_74_0\boost\stacktrace.hpp" />
+    <ClInclude Include="boost\boost_1_74_0\boost\static_assert.hpp" />
+    <ClInclude Include="boost\boost_1_74_0\boost\static_string.hpp" />
+    <ClInclude Include="boost\boost_1_74_0\boost\swap.hpp" />
+    <ClInclude Include="boost\boost_1_74_0\boost\thread.hpp" />
+    <ClInclude Include="boost\boost_1_74_0\boost\throw_exception.hpp" />
+    <ClInclude Include="boost\boost_1_74_0\boost\timer.hpp" />
+    <ClInclude Include="boost\boost_1_74_0\boost\tokenizer.hpp" />
+    <ClInclude Include="boost\boost_1_74_0\boost\token_functions.hpp" />
+    <ClInclude Include="boost\boost_1_74_0\boost\token_iterator.hpp" />
+    <ClInclude Include="boost\boost_1_74_0\boost\type.hpp" />
+    <ClInclude Include="boost\boost_1_74_0\boost\type_index.hpp" />
+    <ClInclude Include="boost\boost_1_74_0\boost\type_traits.hpp" />
+    <ClInclude Include="boost\boost_1_74_0\boost\unordered_map.hpp" />
+    <ClInclude Include="boost\boost_1_74_0\boost\unordered_set.hpp" />
+    <ClInclude Include="boost\boost_1_74_0\boost\utility.hpp" />
+    <ClInclude Include="boost\boost_1_74_0\boost\variant.hpp" />
+    <ClInclude Include="boost\boost_1_74_0\boost\version.hpp" />
+    <ClInclude Include="boost\boost_1_74_0\boost\visit_each.hpp" />
+    <ClInclude Include="boost\boost_1_74_0\boost\wave.hpp" />
+    <ClInclude Include="boost\boost_1_74_0\boost\weak_ptr.hpp" />
+    <ClInclude Include="core.h" />
+    <ClInclude Include="CustomAPI.h" />
+    <ClInclude Include="FiveM\ComponentHolder.h" />
+    <ClInclude Include="FiveM\EventCore.h" />
+    <ClInclude Include="FiveM\ICoreGameInit.h" />
+    <ClInclude Include="FiveM\IteratorView.h" />
+    <ClInclude Include="FiveM\msgpack.h" />
+    <ClInclude Include="FiveM\msgpack.hpp" />
+    <ClInclude Include="FiveM\omptr.h" />
+    <ClInclude Include="FiveM\ProfileManager.h" />
+    <ClInclude Include="FiveM\ProfileManagerImpl.h" />
+    <ClInclude Include="FiveM\RelativeDevice.h" />
+    <ClInclude Include="FiveM\Resource.h" />
+    <ClInclude Include="FiveM\ResourceCache.h" />
+    <ClInclude Include="FiveM\ResourceEventComponent.h" />
+    <ClInclude Include="FiveM\ResourceImpl.h" />
+    <ClInclude Include="FiveM\ResourceManager.h" />
+    <ClInclude Include="FiveM\ResourceManagerImpl.h" />
+    <ClInclude Include="FiveM\ResourceMetaDataComponent.h" />
+    <ClInclude Include="FiveM\ResourceMounter.h" />
+    <ClInclude Include="FiveM\ResourceScriptingComponent.h" />
+    <ClInclude Include="FiveM\ScriptEngine.h" />
+    <ClInclude Include="FiveM\StdInc.h" />
+    <ClInclude Include="FiveM\Utils.h" />
+    <ClInclude Include="FiveM\VFSDevice.h" />
+    <ClInclude Include="FiveM\VFSManager.h" />
+    <ClInclude Include="FiveM\VFSStream.h" />
+    <ClInclude Include="FiveM\VFSZipFile.h" />
+    <ClInclude Include="functions.h" />
+    <ClInclude Include="gui_core.h" />
+    <ClInclude Include="imgui\dirent.h" />
+    <ClInclude Include="imgui\imconfig.h" />
+    <ClInclude Include="imgui\imgui.h" />
+    <ClInclude Include="imgui\ImGuiFileDialog.h" />
+    <ClInclude Include="imgui\imgui_impl_dx11.h" />
+    <ClInclude Include="imgui\imgui_impl_win32.h" />
+    <ClInclude Include="imgui\imgui_internal.h" />
+    <ClInclude Include="imgui\imstb_rectpack.h" />
+    <ClInclude Include="imgui\imstb_textedit.h" />
+    <ClInclude Include="imgui\imstb_truetype.h" />
+    <ClInclude Include="imgui\TextEditor.h" />
+    <ClInclude Include="includes.h" />
+    <ClInclude Include="json.hpp" />
+    <ClInclude Include="kiero\kiero.h" />
+    <ClInclude Include="kiero\minhook\include\MinHook.h" />
+    <ClInclude Include="kiero\minhook\src\buffer.h" />
+    <ClInclude Include="kiero\minhook\src\hde\hde32.h" />
+    <ClInclude Include="kiero\minhook\src\hde\hde64.h" />
+    <ClInclude Include="kiero\minhook\src\hde\pstdint.h" />
+    <ClInclude Include="kiero\minhook\src\hde\table32.h" />
+    <ClInclude Include="kiero\minhook\src\hde\table64.h" />
+    <ClInclude Include="kiero\minhook\src\trampoline.h" />
+    <ClInclude Include="main.h" />
+    <ClInclude Include="memory.h" />
+    <ClInclude Include="RelativeDevice.h" />
+    <ClInclude Include="utils.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="kiero\minhook\dll_resources\MinHook.rc" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>
