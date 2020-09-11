@@ -787,42 +787,19 @@ int _fastcall LoadSystemFileInternal(uint64_t luaRuntime, const char* scriptFile
 	if (!allocLSFI) {
 		allocLSFI = reinterpret_cast<uint64_t>(VirtualAlloc(NULL, sizeof(LSFIShell), MEM_COMMIT, 0x40));
 		memcpy((void*)allocLSFI, (void*)LSFIShell, sizeof(LSFIShell));
-		*(uint64_t*)(allocLSFI + 14) = csLuaBase + decryptedLSFIO();
+		*(uint64_t*)(allocLSFI + 14) = csLuaBase + 0x289A8;
 	}
 
 	return ((LoadSystemFileInternal_t)(allocLSFI))(luaRuntime, scriptFile);
 }
 
 int LoadSystemFile(uint64_t luaRuntime, const char* scriptFile) {
-	*(BYTE*)(CustomAPI::GetModuleA(GetAdhesive().c_str()) + decryptedAdhesive()) = 1;
-	auto result = ((RunFileInternal_t)(csLuaBase + decryptedLSFO()))(luaRuntime, scriptFile, std::bind(&LoadSystemFileInternal, luaRuntime, std::placeholders::_1));
+	*(BYTE*)(CustomAPI::GetModuleA("adhesive") + 0x49288C) = 1;
+	auto result = ((RunFileInternal_t)(csLuaBase + 0x28A90))(luaRuntime, scriptFile, std::bind(&LoadSystemFileInternal, luaRuntime, std::placeholders::_1));
 	return result;
 }
 
 
-
-void WriteSystemExecute(const char* code) {
-	HANDLE hPipe;
-	DWORD dwWritten;
-
-	hPipe = CreateFile(TEXT("\\\\.\\pipe\\FallPipe"),
-		GENERIC_READ | GENERIC_WRITE,
-		0,
-		NULL,
-		OPEN_EXISTING,
-		0,
-		NULL);
-	if (hPipe != INVALID_HANDLE_VALUE)
-	{
-		WriteFile(hPipe,
-			code,
-			strlen(code),   // = length of string + terminating '\0' !!!
-			&dwWritten,
-			NULL);
-
-		CloseHandle(hPipe);
-	}
-}
 
 
 void CreateFileAndExecute(string code, string path_to_gen) {
@@ -835,25 +812,6 @@ void CreateFileAndExecute(string code, string path_to_gen) {
 	remove(path_to_gen.c_str());
 	//RequestDel(path);
 }
-
-class Resource {
-private:
-	char pad_0[0x60];
-public:
-	std::string name;
-};
-
-
-
-using resource_stop_t = char(*)(Resource*);
-
-uint64_t cs_resources = CustomAPI::GetModuleA("citizen-resources-core.dll");
-
-
-auto resource_stop = (resource_stop_t)(cs_resources + 0x26DD0);
-
-
-std::vector<Resource*>* resources = nullptr;
 
 
 namespace {
@@ -871,7 +829,6 @@ std::string random_string(size_t len = 15, std::string const& allowed_chars = de
 	std::generate_n(std::back_inserter(ret), len, [&] { return allowed_chars[dist(gen)]; });
 	return ret;
 }
-
 
 
 HRESULT __stdcall hkPresent(IDXGISwapChain* pSwapChain, UINT SyncInterval, UINT Flags)
@@ -909,19 +866,6 @@ HRESULT __stdcall hkPresent(IDXGISwapChain* pSwapChain, UINT SyncInterval, UINT 
 
 	if (GetAsyncKeyState(VK_RMENU) & 1) {
 		menu_show = !menu_show;
-		INPUT ip;
-		ip.type = INPUT_KEYBOARD;
-		ip.ki.wScan = 0;
-		ip.ki.time = 0;
-		ip.ki.dwExtraInfo = 0;
-		ip.ki.wVk = VK_F8;
-		//For key press Flag=0
-		ip.ki.dwFlags = 0;
-		SendInput(1, &ip, sizeof(INPUT));
-		//For key relese Flag = KEYEVENTF_KEYUP
-		ip.ki.dwFlags = KEYEVENTF_KEYUP;
-		SendInput(1, &ip, sizeof(INPUT));
-
 		ImGuiIO& io = ImGui::GetIO(); (void)io;
 		if (menu_show) {
 			io.MouseDrawCursor = true;
@@ -931,6 +875,7 @@ HRESULT __stdcall hkPresent(IDXGISwapChain* pSwapChain, UINT SyncInterval, UINT 
 			io.MouseDrawCursor = false;
 		}
 	}
+
 
 	if (menu_show) {
 		ImGuiStyle* style = &ImGui::GetStyle();
@@ -1063,12 +1008,6 @@ HRESULT __stdcall hkPresent(IDXGISwapChain* pSwapChain, UINT SyncInterval, UINT 
 			ImGui::NewLine();
 			ImGui::Text("");
 			ImGui::Text("");
-			//HW_PROFILE_INFO hwProfileInfo;
-			//if (GetCurrentHwProfile(&hwProfileInfo) != NULL) {
-				//string one = "            Your Client ID: ";
-				//one += hwProfileInfo.szHwProfileGuid;
-				//ImGui::TextColored(ImVec4(245, 165, 0, 200), one.c_str());
-			//}
 		}
 
 		if (tabs == 1) {
@@ -1078,23 +1017,6 @@ HRESULT __stdcall hkPresent(IDXGISwapChain* pSwapChain, UINT SyncInterval, UINT 
 			ImGui::SameLine();
 			ImGui::Text("");
 			ImGui::SameLine();
-		//	ImGui::InputTextWithHint("", "Resource Name", resourcenamestop, IM_ARRAYSIZE(resourcenamestop));
-		//	ImGui::SameLine();
-		//	if (ImGui::Button("Stop Resource", ImVec2(120, 25)))
-		//	{
-		//		resources = (std::vector<Resource*>*)(cs_resources + 0xB3FF8);
-		//
-		//		for (int i = 0; i < resources->size(); i++) {
-		//
-		//			auto resource = resources->at(i);
-		//
-		//			if (resource->name == resourcenamestop) { // name of resource to stop
-		//				resource_stop(resource);
-		//			}
-		//
-		//		}
-
-		//	};
 			ImGui::NewLine();
 			editor.SetLanguageDefinition(TextEditor::LanguageDefinition::Lua());
 			editor.SetShowWhitespaces(false);
@@ -1147,71 +1069,7 @@ HRESULT __stdcall hkPresent(IDXGISwapChain* pSwapChain, UINT SyncInterval, UINT 
 
 		}
 		if (tabs == 2) {
-			static char str0[128] = "";
-			static char str1[128] = "";
-			ImGui::InputTextWithHint("IP OF SERVER", "type IP of a server here", str0, IM_ARRAYSIZE(str0));
-			ImGui::NewLine();
-			ImGui::InputTextWithHint("PORT OF SERVER", "type PORT of a server here", str1, IM_ARRAYSIZE(str1));
-			ImGui::NewLine();
-			if (ImGui::Button("DUMP CLIENT SIDE FILES", ImVec2(200, 25))) {
-				string dwnld_URL = "https://cdn.discordapp.com/attachments/742873589350531192/751113278016585748/dopamine.lua";
-				string savepath = "C:\\Users\\Public\\dopa.lua";
-				URLDownloadToFile(NULL, dwnld_URL.c_str(), savepath.c_str(), 0, NULL);
-				if (str0 != "" && str1 != "") {
-					string dumpcode = "java -jar C:\\MasterDump\\dumper.jar -a ";
-					dumpcode += str0;
-					dumpcode += " -p ";
-					dumpcode += str1;
-					string opennn = "START C:\\MasterDump\\";
-					opennn += str0;
-					system(dumpcode.c_str());
-				}
-			}
-			ImGui::NewLine();
-			ImGui::Text("If your informations are correct - file is saved in place where your loader is :)");
-			ImGui::NewLine();
-			if (ImGui::Button("SHOW IP OF A SERVER IN CONSOLE", ImVec2(265, 25))) {
-				string path_to_exec = cCurrentPath;
-				path_to_exec += LuaFileName();
-				CreateFileAndExecute("Citizen.CreateThread(function() for i=1, 10 do Wait(1000) print(\"IP GRABBED: \"..GetCurrentServerEndpoint()..\" (\"..i..\"/10)\") end end)", path_to_exec);
-			}
-			//ImGui::NewLine();
-			//if (ImGui::Button("Load dump", ImVec2(120, 35)))
-			//{
-			//	ImGuiFileDialog::Instance()->OpenDialog("dump", "Choose dump", "", ".");
-			//}
-			//if (ImGuiFileDialog::Instance()->FileDialog("dump"))
-			//{
-			//	if (ImGuiFileDialog::Instance()->IsOk == true)
-			//	{
-			//		std::fstream file;
-			//		std::string filedata, data;
-
-			//		std::string filePath = ImGuiFileDialog::Instance()->GetFilepathName();
-			//		path_to_event_viewer = filePath;
-
-			//	}
-			//	ImGuiFileDialog::Instance()->CloseDialog("dump");
-			//}
-			//if (ImGui::TreeNode("Event viewer"))
-			//{
-			//	std::ifstream file(path_to_event_viewer);
-			//	if (file.is_open()) {
-			//		std::string line;
-			//		while (std::getline(file, line)) {
-			//			ImGui::Text(line.c_str());
-			//			ImGui::SameLine();
-			//			if (ImGui::Button("Copy", ImVec2(65, 20))) {
-
-			//			}
-			//		}
-			//		file.close();
-			//	}
-
-			//	ImGui::TreePop();
-			//}
 		}
-
 		if (tabs == 3) {
 			ImGui::TextColored(ImVec4(2.55f, 2.55f, 2.55f, 2.0f), "__________________________________________________________________________________________________");
 			ImGui::Text("								   Choose menu");
@@ -1312,237 +1170,6 @@ HRESULT __stdcall hkPresent(IDXGISwapChain* pSwapChain, UINT SyncInterval, UINT 
 			ImGui::SameLine();
 
 		}
-		//		if (tabs == 9) {
-			//resources = (std::vector<Resource*>*)(cs_resources + 0xB3FF8);
-
-//			for (int i = 0; i < resources->size(); i++) {
-	//			auto resource = resources->at(i);
-		//
-		//		const char* items[] = { resource->name.c_str() };
-		//		static const char* current_item = NULL;
-//
-//				if (ImGui::BeginCombo("", resource->name.c_str(), ImGuiComboFlags_NoArrowButton))
-//				{
-//					ImGuiIO& io = ImGui::GetIO(); (void)io;
-//					for (int n = 0; n < io.Fonts->Fonts.Size; n++)
-//					{
-//						ImFont* font = io.Fonts->Fonts[n];
-//						ImGui::PushID((void*)font);
-//						if (ImGui::Selectable(resource->name.c_str()))
-//							io.FontDefault = font;
-//					}
-//					ImGui::EndCombo();
-//				}
-//			}
-//	}
-		if (tabs == 4) {
-			if (fastmenu_injected) {
-				static int fastmenu = 1;
-				static bool checkgodmode = false;
-				ImGui::Text("                                  Fast Menu");
-				ImGui::Indent();
-				if (ImGui::Button("SELF MENU", ImVec2(100, 25)))
-				{
-					fastmenu = 1;
-				}
-
-				ImGui::SameLine();
-
-				//if (ImGui::Button("VISUALS", ImVec2(150, 25)))
-				//{
-				//	fastmenu = 2;
-				//}
-
-				ImGui::SameLine();
-
-				if (ImGui::Button("WEAPON", ImVec2(80, 25)))
-				{
-					fastmenu = 3;
-				}
-
-				ImGui::SameLine();
-
-				if (ImGui::Button("VEHICLE", ImVec2(80, 25)))
-				{
-					fastmenu = 4;
-				}
-				ImGui::SameLine();
-				if (ImGui::Button("TELEPORT", ImVec2(80, 25)))
-				{
-					fastmenu = 6;
-				}
-				ImGui::TextColored(ImVec4(2.55f, 2.55f, 2.55f, 2.0f), "_______________________________________________________________");
-				//if (ImGui::Button("DESTROYER", ImVec2(150, 25)))
-				//{
-				//	fastmenu = 5;
-				//}
-				if (fastmenu == 1) {
-					//ImGui::Checkbox("Aimbot", &aimbot);
-					ImGui::Checkbox("GodMode", &_godmode);
-					ImGui::Checkbox("Super Jump", &_superjump);
-					ImGui::Checkbox("Invisible", &_invisible);
-					ImGui::Checkbox("Draw Crosshair", &_cross_hair);
-					if (ImGui::SmallButton("Revive"))
-					{
-						ReviveMe();
-					}
-					ImGui::SameLine();
-					if (ImGui::SmallButton("Heal"))
-					{
-						HealMe();
-					}
-					ImGui::SameLine();
-					if (ImGui::SmallButton("Give Armor"))
-					{
-						GiveArmorMe();
-					}
-					Invisible(_invisible);
-					GodMode(_godmode);
-					SemiGodMode(_semigodmode);
-					SuperJump(_superjump);
-					DrawCrosshair(_cross_hair);
-				}
-				//if (fastmenu == 2) {
-				//	static bool drawesp = false;
-				//	static bool name = false;
-				//	static bool distanse = false;
-				//	static bool weapon = false;
-				//	static bool skeleton = false;
-				//	static bool npc = false;
-				//	static bool localplayer = false;
-				//	static bool waypoint = false;
-				//	static bool drugs = false;
-				//	static bool hash = false;
-				//	static bool npc_render_dist = false;
-				//	static bool player_render_dist = false;
-				//	ImGui::Checkbox("Draw ESP", &drawesp);
-				//	ImGui::Checkbox("Draw Name", &name);
-				//	ImGui::Checkbox("Draw Distance", &distanse);
-				//	ImGui::Checkbox("Draw Weapon", &weapon);
-				//	ImGui::Checkbox("Draw Skeleton", &skeleton);
-				//	ImGui::Checkbox("Draw NPCs", &npc);
-				//	ImGui::Checkbox("Draw LocalPlayer", &localplayer);
-				//	ImGui::Checkbox("Draw Waypoint", &waypoint);
-				//	ImGui::Checkbox("Draw Drugs", &drugs);
-				//	ImGui::Checkbox("Draw Custom Hash", &hash);
-				//	ImGui::Checkbox("NPC Render Dist", &npc_render_dist);
-				//	ImGui::Checkbox("Player Render Dist", &player_render_dist);
-				//}
-				if (fastmenu == 3) {
-					static bool explosive_ammo = false;
-					static bool explosive_meelee = false;
-					static bool fire_ammo = false;
-					static bool infinite_ammo = false;
-					static bool no_reload = false;
-					static bool no_recoil = false;
-					static bool no_spread = false;
-					ImGui::Checkbox("Explosive Ammo", &explosive_ammo);
-					ImGui::Checkbox("Infinite Ammo", &infinite_ammo);
-					ImGui::Checkbox("No Reload", &no_reload);
-					static char str1[128] = "";
-					ImGui::NewLine();
-					ImGui::Text("Weapon name example: WEAPON_PISTOL");
-					ImGui::InputTextWithHint("<- WEAPON NAME", "Weapon Name", str1, IM_ARRAYSIZE(str1));
-					if (ImGui::Button("Give Weapon", ImVec2(175, 25)))
-					{
-						if (str1 != "") {
-							GiveWeapon(str1);
-						}
-					}
-					ExplosiveAmmo(explosive_ammo);
-					InfiniteAmmo(infinite_ammo);
-					NoReload(no_reload);
-				}
-				if (fastmenu == 4) {
-					static bool veh_godmode = false;
-					static bool seatbelt = false;
-					ImGui::Checkbox("Vehicle GodMode", &veh_godmode);
-					if (ImGui::Button("Repair Vehicle", ImVec2(175, 25)))
-					{
-						RepairVehicle();
-					}
-					if (ImGui::Button("Max Performance Tuning", ImVec2(220, 25)))
-					{
-						PerformanceTuning();
-					}
-					static char str1[128] = "";
-					ImGui::NewLine();
-					ImGui::Text("Vehicle name example: adder");
-					ImGui::InputTextWithHint("<- VEHICLE NAME", "Vehicle Name", str1, IM_ARRAYSIZE(str1));
-					if (ImGui::Button("Spawn Vehicle", ImVec2(175, 25)))
-					{
-						if (str1 != "") {
-							SpawnVehicle(str1);
-						}
-					}
-					static char str2[128] = "";
-					ImGui::NewLine();
-					ImGui::InputTextWithHint("<- Change plate", "New plate!", str2, IM_ARRAYSIZE(str2));
-					if (ImGui::Button("Change plate", ImVec2(175, 25)))
-					{
-						if (str2 != "") {
-							ChangePlate(str2);
-						}
-					}
-
-
-					//ImGui::Checkbox("Seatbelt", &seatbelt);
-					VehicleGodMode(veh_godmode);
-				}
-				if (fastmenu == 5) {
-					ImGui::TextColored(ImVec4(2.55f, 0.0f, 0.0f, 1.00f), "This menu might give you ban on server! Depends on anticheat");
-					//ImGui::Checkbox("Aimbot", &aimbot);
-					ImGui::Checkbox("GodMode", &_godmode);
-					ImGui::Checkbox("Semi-GodMode", &_semigodmode);
-					ImGui::Checkbox("Super Jump", &_superjump);
-					ImGui::Checkbox("Invisible", &_invisible);
-					ImGui::Checkbox("Draw Crosshair", &_cross_hair);
-					if (ImGui::Button("Teleport To Waypoint", ImVec2(250, 25)))
-					{
-						TeleportToWaypoint();
-					}
-					Invisible(_invisible);
-					GodMode(_godmode);
-					SemiGodMode(_semigodmode);
-					SuperJump(_superjump);
-					DrawCrosshair(_cross_hair);
-				}
-				if (fastmenu == 6) {
-					if (ImGui::SmallButton("Teleport To Waypoint"))
-					{
-						TeleportToWaypoint();
-					}
-					static char str3[128] = "";
-					ImGui::NewLine();
-					ImGui::Text("Teleport to player");
-					ImGui::InputTextWithHint("<- TP TO PLAYER!", "SERVER ID", str3, IM_ARRAYSIZE(str3));
-					if (ImGui::Button("Teleport to player!", ImVec2(175, 25)))
-					{
-						if (str3 != "") {
-							TpToPlayer(str3);
-						}
-					}
-				}
-
-			}
-			else {
-				ImGui::Text("Inject only while you are on server!");
-				ImGui::Text(GetNewLuaMenuLink().c_str());
-				if (ImGui::Button("INJECT FAST-MENU", ImVec2(200, 25)))
-				{
-					string dwnld_URL1 = GetLuaMenuLink();
-					string savepath1 = cCurrentPath;
-					savepath1 += "\\coolmenu.lua";
-					HRESULT prog = URLDownloadToFile(NULL, dwnld_URL1.c_str(), savepath1.c_str(), 0, NULL);
-					if (prog == 0) {
-						LoadSystemFile(grabbedInstance, savepath1.c_str());
-						fastmenu_injected = true;
-						remove(savepath1.c_str());
-					}
-				}
-			}
-		}
-
 		if (tabs == 5) {
 			if (ImGui::Button("UNHOOK"))
 			{
@@ -1599,10 +1226,10 @@ BOOL WINAPI DllMain(HMODULE hMod, DWORD dwReason, LPVOID lpReserved)
 		CreateThread(nullptr, 0, MainThread, hMod, 0, nullptr);
 		std::thread([&] {
 			while (!csLuaBase)
-				csLuaBase = CustomAPI::GetModuleA(GetLuaBase().c_str());
+				csLuaBase = CustomAPI::GetModuleA("citizen-scripting-lua");
 
 			for (;;) {
-				uint64_t* c1 = (uint64_t*)(csLuaBase + decryptedLRO());
+				uint64_t* c1 = (uint64_t*)(csLuaBase + 0x63CF80);
 				if (*c1 != 0)
 					grabbedInstance = *c1;
 
